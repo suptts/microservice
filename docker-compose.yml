@@ -1,0 +1,22 @@
+version: '3.5'
+
+
+services:
+  postgres:
+    container_name: postgres_udemy
+    image: postgres:latest
+    environment:
+#      POSTGRES_USER: suparuek
+      POSTGRES_PASSWORD: postgrespw
+#      PGDATA: /data/postgres
+    volumes:
+#       - postgres-db:/data/postgres
+       - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+
+volumes:
+  pgdata:
+#  postgres-db:
+#    driver: local
