@@ -34,7 +34,7 @@ Build the image:
 ต้องทำ git init แล้วสั่ง commitเพื่อให้ได้ log มาก่อน
 
 ```
-cd weather-app 
+cd ~/containerhub 
 git log -1 --pretty=%H
 ``` 
 
