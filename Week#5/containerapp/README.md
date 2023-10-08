@@ -61,3 +61,8 @@ E.g.docker image push [USERNAME]/weather-app:[HASH]
 E.g. docker image push [USERNAME]/weather-app:latest
 
 `docker image push supiwmi/simpleweb:latest` 
+
+
+Check image on Docker Hub
+
+https://hub.docker.com/repositories/supiwmi
