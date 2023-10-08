@@ -1,0 +1,32 @@
+version:  "3"
+services:
+  wordpress:
+    image:  wordpress
+    ports:
+      - "8088:80"
+    depends_on:
+      - mysql
+    environment:
+      WORDPRESS_DB_HOST:  mysql
+      WORDPRESS_DB_USER:  root
+      WORDPRESS_DB_PASSWORD:  "ttsdemo"
+      WORDPRESS_DB_NAME:  wordpress
+    networks:
+      awsome:
+        ipv4_address:  "192.168.56.51"
+  mysql:
+    image:  "mysql:5.7"
+    environment:
+      MYSQL_DATABASE:  wordpress
+      MYSQL_ROOT_PASSWORD: "ttsdemo"
+    volumes:
+      -  ./mysql:/var/lib/mysql
+    networks:
+      awsome:
+        ipv4_address:  "192.168.56.61"
+networks:
+  awsome:
+    ipam:
+      driver:  default
+      config:
+        -  subnet:  "192.168.56.0/24"
