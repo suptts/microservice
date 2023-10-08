@@ -36,7 +36,7 @@ data "azurerm_subnet" "ExistingNetworkRG" {
 }
 # Create public IPs
 resource "azurerm_public_ip" "ExistingNetworkRG" {
-  name                = "qemusuptts-RG-TF-VM-Network"
+  name                = "supdevops-RG-TF-VM-Network"
   location            = data.azurerm_resource_group.ExistingNetworkRG.location
   resource_group_name = data.azurerm_resource_group.ExistingNetworkRG.name
   #public_ip_address_allocation = "dynamic" # deprecated
@@ -45,11 +45,11 @@ resource "azurerm_public_ip" "ExistingNetworkRG" {
 }
 # create a network interface
 resource "azurerm_network_interface" "ExistingNetworkRG" {
-  name                = "qemusuptts-RG-TF-VM-Network"
+  name                = "supdevops-RG-TF-VM-Network"
   location            = data.azurerm_resource_group.ExistingNetworkRG.location
   resource_group_name = data.azurerm_resource_group.ExistingNetworkRG.name
   ip_configuration {
-    name                          = "qemusuptts"
+    name                          = "supdevops"
     subnet_id                     = data.azurerm_subnet.ExistingNetworkRG.id
     private_ip_address_allocation = "Dynamic"
     public_ip_address_id          = azurerm_public_ip.ExistingNetworkRG.id
@@ -71,7 +71,7 @@ CreatedBy = "Admin"
 **********************************************************/
 # Create virtual machine
 resource "azurerm_virtual_machine" "ExistingNetworkRG" {
-  name                             = "qemusuptts" # This is the VM Name in Azure Portal
+  name                             = "supdevops" # This is the VM Name in Azure Portal
   location                         = data.azurerm_resource_group.ExistingVMRG.location
   resource_group_name              = data.azurerm_resource_group.ExistingVMRG.name
   network_interface_ids            = ["${azurerm_network_interface.ExistingNetworkRG.id}"]
@@ -144,14 +144,14 @@ storage_image_reference {
 
 
   storage_os_disk {
-    name              = "qemusuptts"
+    name              = "supdevops"
     disk_size_gb      = "128"
     caching           = "ReadWrite"
     create_option     = "FromImage"
     managed_disk_type = "Standard_LRS"
   }
   os_profile {
-    computer_name  = "qemusuptts" # This is the OS name - login prompt
+    computer_name  = "supdevops" # This is the OS name - login prompt
     admin_username = "suparuek"
     admin_password = "Password12345!"
   }
