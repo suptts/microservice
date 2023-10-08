@@ -34,27 +34,30 @@ Build the image:
 ต้องทำ git init แล้วสั่ง commitเพื่อให้ได้ log มาก่อน
 
 ```
-
 cd weather-app 
 git log -1 --pretty=%H
-
 ``` 
 
 ### Build the weather-app Image
 Now let's move up a directory (Dockerfile exist) and build the image:
 
- docker image build -t [USERNAME]/weather-app:[HASH] --build-arg VERSION=1.5 . 
-` docker image build -t supiwmi/simpleweb:d031aeb892d1c3d5364c459d65bb13b62c30a303 --build-arg VERSION=1.5 .` 
-
-` docker images`
+E.g. docker image build -t [USERNAME]/weather-app:[HASH] --build-arg VERSION=1.5 . 
+``` 
+docker image build -t supiwmi/simpleweb:d031aeb892d1c3d5364c459d65bb13b62c30a303 --build-arg VERSION=1.5 .
+docker images
+```
 
 ### Tag the weather-app Image as Latest
-docker image tag [USERNAME]/weather-app:[HASH] [USERNAME]/weather-app:latest
-`docker image tag supiwmi/simpleweb:d031aeb892d1c3d5364c459d65bb13b62c30a303 supiwmi/simpleweb:latest` 
+E.g. docker image tag [USERNAME]/weather-app:[HASH] [USERNAME]/weather-app:latest
+```
+docker image tag supiwmi/simpleweb:d031aeb892d1c3d5364c459d65bb13b62c30a303 supiwmi/simpleweb:latest
+```
 
 ### Push Both Images to Docker Hub
-docker image push [USERNAME]/weather-app:[HASH]
+E.g.docker image push [USERNAME]/weather-app:[HASH]
+
 `docker image push supiwmi/simpleweb:d031aeb892d1c3d5364c459d65bb13b62c30a303` 
 
-docker image push [USERNAME]/weather-app:latest
+E.g. docker image push [USERNAME]/weather-app:latest
+
 `docker image push supiwmi/simpleweb:latest` 
