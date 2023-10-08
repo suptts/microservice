@@ -25,9 +25,11 @@ Prerequisite:
 - Docker Hub Account
 
 Log in to Docker Hub
+
 `docker login -u supiwmi`
 
 Build the image:
+
 `docker image build -t <USERNAME>/appname:`
 
 ### Get the Git Commit Hash
