@@ -40,27 +40,27 @@ cd ~/containerhub
 git log -1 --pretty=%H
 ``` 
 
-### Build the weather-app Image
+### Build the webapp Image
 Now let's move up a directory (Dockerfile exist) and build the image:
 
-E.g. docker image build -t [USERNAME]/weather-app:[HASH] --build-arg VERSION=1.5 . 
+E.g. docker image build -t [USERNAME]/simple-app:[HASH] --build-arg VERSION=1.5 . 
 ``` 
 docker image build -t supiwmi/simpleweb:d031aeb892d1c3d5364c459d65bb13b62c30a303 --build-arg VERSION=1.5 .
 docker images
 ```
 
 ### Tag the weather-app Image as Latest
-E.g. docker image tag [USERNAME]/weather-app:[HASH] [USERNAME]/weather-app:latest
+E.g. docker image tag [USERNAME]/simple-app:[HASH] [USERNAME]/simple-app:latest
 ```
 docker image tag supiwmi/simpleweb:d031aeb892d1c3d5364c459d65bb13b62c30a303 supiwmi/simpleweb:latest
 ```
 
 ### Push Both Images to Docker Hub
-E.g.docker image push [USERNAME]/weather-app:[HASH]
+E.g.docker image push [USERNAME]/simple-app:[HASH]
 
 `docker image push supiwmi/simpleweb:d031aeb892d1c3d5364c459d65bb13b62c30a303` 
 
-E.g. docker image push [USERNAME]/weather-app:latest
+E.g. docker image push [USERNAME]/simple-app:latest
 
 `docker image push supiwmi/simpleweb:latest` 
 
